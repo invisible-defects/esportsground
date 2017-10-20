@@ -1,4 +1,4 @@
-from app import db
+from webapp import db
 
 class User(db.Model):
     vkid = db.Column(db.String, primary_key=True)
