@@ -97,12 +97,18 @@
   bottom: 10px;
   position: absolute;
 }
-
-/*csgo*/
-.ui_tab_cs.ui_tab_sel{
-  border-bottom: 2px solid #F47B23 !important;
+.ui_scroll_blocker {
+    padding: 0 40px !important;
 }
-.ui_tab_sel.ui_tab_cs:hover{
+.ui_scroll_outer{
+  padding: 0 !important;
+}
+/*csgo*/
+.active_game.ui_tab_cs{
+  border-bottom: 2px solid #F47B23 !important;
+  padding: 18px 6px 18px !important;
+}
+.active_game.ui_tab_cs:hover{
   border-bottom: 2px solid #F47B23 !important;
 }
 .ui_tab_cs:hover{
@@ -112,6 +118,7 @@
 /*dota*/
 .ui_tab_dota.ui_tab_sel{
   border-bottom: 2px solid #EF3F3F !important;
+  padding: 18px 6px 18px !important;
 }
 .ui_tab_sel.ui_tab_dota:hover{
   border-bottom: 2px solid #EF3F3F !important;
@@ -123,6 +130,7 @@
 /*lol*/
 .ui_tab_lol.ui_tab_sel{
   border-bottom: 2px solid #23408D !important;
+  padding: 18px 6px 18px !important;
 }
 .ui_tab_sel.ui_tab_lol:hover{
   border-bottom: 2px solid #23408D !important;
@@ -130,6 +138,33 @@
 .ui_tab_lol:hover{
   border-bottom: 2px solid #9AA8CA !important;
 }
-.rightside > a{
-  float:right;
+.rightside{
+  float:right !important;
+}
+
+.rating-h1 h1{
+  margin: 17px 0 5px !important;
+  font-size: 2em;
+  text-transform: uppercase;
+  color: #C5C4C4;
+}
+.rating-h1 h1 strong{
+  font-size: 2.2em;
+  line-height: 1em;
+  text-transform: uppercase;
+  color: #333;
+}
+.stat-h1 h1{
+  text-transform: uppercase;
+  color: #C5C4C4;
+}
+.stat-h1 h1 strong{
+  text-transform: uppercase;
+  color: #333;
+}
+.apps_recent_notifications_wrap{
+  height: auto !important;
+}
+.rating-pic{
+  height:100px;
 }
