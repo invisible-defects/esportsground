@@ -7,9 +7,9 @@ from webapp import webapp
 def profile():
     return render_template("index.html")
 
-@webapp.route('/games-menu')
+@webapp.route('/register')
 def menu():
-    return 0
+    return render_template("register.html")
 
 @webapp.route('/csgo/stats')
 def csgo_stats():
