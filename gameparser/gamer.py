@@ -6,7 +6,7 @@ parser = Parser(conf.STEAMKEY)
 class Gamer:
     def __init__(self, vk_id, steam_id, game_names):
         '''
-        A class that keep a users inforamtion
+        Give steam id as an argument and get players game statisctics
         :param vk_id: vk id
         :param steam_id: suprisingly, steam id :)
         :param game_names: list of games (can find in __config__.py), example: ["csgo, "dota2"]
@@ -20,7 +20,6 @@ class Gamer:
             stats = parser.getUserStatsForGame(steam_id, conf.STEAMGAMES[game])
 
             self.stats.append({game : stats})
-
 
 
 
