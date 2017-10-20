@@ -2,3 +2,5 @@ gameparser/__config__.py
 .idea/
 gameparser/__pycache__/
 *.pyc
+db_repository/
+app.db
