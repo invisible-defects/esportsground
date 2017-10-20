@@ -38,9 +38,16 @@ def R_new(R, K, S, E):
 
 
 
+def set_R(*args):
+    (total_deaths, total_kills, total_kills_headshot, total_shots_fired, total_shots_hit, total_time_played, total_wins)=args
+    total_time_played/=3600.0
+    R=total_kills*log(total_time_played)*total_wins*total_kills_headshot*total_shots_hit/(total_deaths*(total_deaths+total_kills)*total_shots_fired*total_shots_fired)
+    T=2*R/log(R)
+    return T if T<=2500 else 2500
+
+
 def set_R(total_deaths, total_kills, total_kills_headshot, total_shots_fired, total_shots_hit, total_time_played, total_wins):
     total_time_played/=3600.0
-    R=total_kills*total_kills*log(total_time_played)*total_wins*total_kills_headshot*total_shots_hit/(total_deaths*(total_deaths+total_kills)*total_shots_fired*total_shots_fired)
-    T=4*R**(2*sqrt(R)/e)
-    if t<=2500: return T
-    else: return 2500
+    R=total_kills*log(total_time_played)*total_wins*total_kills_headshot*total_shots_hit/(total_deaths*(total_deaths+total_kills)*total_shots_fired*total_shots_fired)
+    T=2*R/log(R)
+    return T if T<=2500 else 2500
