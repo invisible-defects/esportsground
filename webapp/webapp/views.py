@@ -9,12 +9,16 @@ def profile():
 
 @webapp.route('/register')
 def menu():
-    return render_template("games.html")
+    return render_template("register.html")
 
 @webapp.route('/csgo/stats')
 def csgo_stats():
-    return 0
+    return """<h1>This page is under construction</h1>
+    <img src="https://i.pinimg.com/736x/00/8e/8f/008e8f7c946120650b7b254e2a72e7a4--caution-signs-construction-\
+    signs.jpg" alt="Smiley face" height="500" width="500">"""
 
 @webapp.route('/csgo/team')
 def csgo_team():
-    return 0
+    return """<h1>This page is also under construction</h1>
+    <img src="https://i.pinimg.com/736x/00/8e/8f/008e8f7c946120650b7b254e2a72e7a4--caution-signs-construction-\
+    signs.jpg" alt="Smiley face" height="500" width="500">"""
