@@ -1,2 +1,2 @@
-from webapp import webapp
-webapp.run(debug = True)
+from webapp.app import app
+app.run(debug = True)

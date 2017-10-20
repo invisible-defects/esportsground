@@ -1,3 +1,5 @@
 gameparser/__config__.py
 .idea/
 gameparser/__pycache__/
+deniska/
+*.pyc
