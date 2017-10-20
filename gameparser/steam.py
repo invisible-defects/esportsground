@@ -10,9 +10,9 @@ class Parser:
 
         self.key = key
 
-    def getGameAchivements(self, steamid, appid):
+    def getGameAchievements(self, steamid, appid):
         """
-        Returns achivements of a cartain game
+        Returns achievements of a certain game
         :param steamid: int64 Steam account id
         :param appid: game id
         :return: games
@@ -21,14 +21,35 @@ class Parser:
         link = "http://api.steampowered.com/ISteamUserStats/" \
                "GetPlayerAchievements/v0001/?appid={appid}&key={key}&steamid={sid}"
         link = link.format(key=self.key, sid=steamid, appid=appid)
-
-        print(link)
-
         r = requests.get(link)
 
         return dict(r.json())["playerstats"]
 
+    def getUserStatsForGame(self, steamid, appid):
+        """
+        Returns Statistics of a certain game
+        :param steamid: int64 Steam account id
+        :param appid: Steam game id (listed in __config__.STEAMGAMES)
+        :return: games
+        """
+
+        link = "http://api.steampowered.com/ISteamUserStats/" \
+               "GetUserStatsForGame/v0002/?appid={appid}&key={key}&steamid={sid}"
+        link = link.format(key=self.key, appid=appid, sid=steamid)
+        r = requests.get(link)
+
+        data = dict(r.json())["playerstats"]["stats"]
+        data = {arr['name'] : arr['value'] for arr in data}
+
+        keys = ["total_kills", "total_deaths", "total_time_played", "total_wins",
+                "total_kills_headshot", "total_shots_fired", "total_shots_hit"]
+        [data.pop(k) for k in data.copy().keys() if k not in keys]
+
+        return data
+
+
+
 
 if __name__ == "__main__":
     p = Parser(conf.STEAMKEY)
-    print(p.getGameAchivements("76561198208367476", conf.STEAMGAMES["csgo"]))
+    print(p.getUserStatsForGame("76561198208367476", conf.STEAMGAMES["csgo"]))

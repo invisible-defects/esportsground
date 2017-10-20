@@ -15,17 +15,18 @@ class Gamer:
         self.vk_id = vk_id
         self.steam_id = steam_id
 
-        self.games = list()
-
+        self.stats = list()
         for game in game_names:
-            achivement = parser.getGameAchivements(steam_id, conf.STEAMGAMES[game])
-            achivement = {achivement[achivement["gameName"]] : achivement["achievements"]}
+            stats = parser.getUserStatsForGame(steam_id, conf.STEAMGAMES[game])
 
-            self.games.append(achivement)
+            self.stats.append({game : stats})
+
+
 
 
 if __name__ == "__main__":
     g = Gamer(123213, "76561198208367476", ["csgo"])
+    print(g.stats)
 
 
 
