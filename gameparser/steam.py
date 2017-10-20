@@ -66,4 +66,4 @@ class Parser:
 
 if __name__ == "__main__":
     p = Parser(conf.STEAMKEY)
-    print(p.getBans("76561197960435530"))
+    print(p.isVACBanned("76561198212449428"))
