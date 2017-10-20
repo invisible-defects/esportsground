@@ -47,9 +47,23 @@ class Parser:
 
         return data
 
+    def isVACBanned(self, steamid):
+        """
+        Tells if players is VACBanned
+        :param steamid: id64 Steam account id
+        :return: bool
+        """
+
+        link = "http://api.steampowered.com/ISteamUser/GetPlayerBans/v1/?key={key}&steamids={sid}"
+        link = link.format(key=self.key, sid=steamid)
+
+        r = requests.get(link)
+
+        return dict(r.json())['players'][0]["VACBanned"]
+
 
 
 
 if __name__ == "__main__":
     p = Parser(conf.STEAMKEY)
-    print(p.getUserStatsForGame("76561198208367476", conf.STEAMGAMES["csgo"]))
+    print(p.getBans("76561197960435530"))
