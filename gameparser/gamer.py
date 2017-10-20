@@ -1,5 +1,5 @@
-from steam import Parser
-import __config__ as conf
+from gameparser.steam import Parser
+import gameparser.__config__ as conf
 import mathematics.statistics
 
 parser = Parser(conf.STEAMKEY)
@@ -26,7 +26,7 @@ class Gamer:
         self.csgo_stats=[self.stats[0]['csgo'][i] for i in self.stats[0]['csgo']]
         self.R=mathematics.statistics.set_R(*self.csgo_stats)
         
-    def refresh_R(self S, E):
+    def refresh_R(self, S, E):
         """
         S: match result: 1 if win, 0.5 if draw, 0 if lose
         E: predicted probability of win
