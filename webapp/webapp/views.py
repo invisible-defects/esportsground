@@ -9,7 +9,7 @@ def profile():
 
 @webapp.route('/register')
 def menu():
-    return render_template("register.html")
+    return render_template("games.html")
 
 @webapp.route('/csgo/stats')
 def csgo_stats():
