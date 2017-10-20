@@ -6,7 +6,7 @@ parser = Parser(conf.STEAMKEY)
 class Gamer:
     def __init__(self, vk_id, steam_id, game_names):
         '''
-        A class that keep a users inforamtion
+        Give steam id as an argument and get players game statisctics
         :param vk_id: vk id
         :param steam_id: suprisingly, steam id :)
         :param game_names: list of games (can find in __config__.py), example: ["csgo, "dota2"]
@@ -15,17 +15,17 @@ class Gamer:
         self.vk_id = vk_id
         self.steam_id = steam_id
 
-        self.games = list()
-
+        self.stats = list()
         for game in game_names:
-            achivement = parser.getGameAchivements(steam_id, conf.STEAMGAMES[game])
-            achivement = {achivement[achivement["gameName"]] : achivement["achievements"]}
+            stats = parser.getUserStatsForGame(steam_id, conf.STEAMGAMES[game])
 
-            self.games.append(achivement)
+            self.stats.append({game : stats})
+
 
 
 if __name__ == "__main__":
     g = Gamer(123213, "76561198208367476", ["csgo"])
+    print(g.stats)
 
 
 
