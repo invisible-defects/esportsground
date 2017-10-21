@@ -135,9 +135,17 @@ class Parser:
         return dict(r.json())['players'][0]["VACBanned"]
 
 
+    def getPlayerName(self, steamid):
+        link = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key={key}&steamids={sid}"
+        link = link.format(key=self.key, sid=steamid)
+
+        r = requests.get(link)
+
+        return dict(r.json())["response"]["players"][0]["personaname"]
+
 
 
 if __name__ == "__main__":
     p = Parser(conf.STEAMKEY)
-    print(p.getUserStatsForGame("76561198353376393", conf.STEAMGAMES["csgo"]))
+    print(p.getPlayerName("76561198353376393"))
 
