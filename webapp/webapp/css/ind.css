@@ -46,8 +46,8 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 85px;
-  height: 85px;
+  width: 70px;
+  height: 70px;
   border-radius: 20%;
   -moz-force-broken-image-icon: 0;
   background-color: #fafbfc;
@@ -57,7 +57,9 @@
 .gameuser{
   padding: 0 !important;
 }
-.gameuser > p{
+.gameuser > a{
+  display: block;
+  width: 100%;
   text-align: center;
   font-size: 16px;
   margin: 0.5em 0 !important;
@@ -83,6 +85,7 @@
   position: relative;
 }
 .views{
+  color: white;
   position: absolute;
   left: 10px;
   font-size: 1.2em;
@@ -203,8 +206,9 @@
   width:100%;
   padding: 0 0 0.4em;
   font-size: 1em !important;
-  border-bottom: 1px #333 solid;
+  border: 0;
   transition: .2s;
+  text-align: center;
 }
 .input-nameteam:focus{
   transition: .2s linear;
@@ -220,9 +224,18 @@
 }
 .cardrole{
   height:200px;
-  background: #C4C4C4;
+  background: #edeef0;
   padding: 0 0 !important;
   margin: 0 0.75rem !important;
+}
+.cardrole p{
+  width:100%;
+  text-align: center;
+  color: #828282;
+  font-size: 1.7em;
+  border:0 !important;
+  pointer-events: none;
+
 }
 .rounded {
   margin-top: 1em;
@@ -233,7 +246,96 @@
   height: 60px;
   border-radius: 100%;
   background-color: #fafbfc;
+  border:0 !important;
+  pointer-events: none;
+}
+
+.userimg {
+  display: block;
+  border-radius: 100%;
+  background-color: #edeef0;
+  width: 40px !important;
+  height: 40px;
+  padding: 0 !important;
+  background-size: contain;
+  margin: 0 !important;
+  border:0 !important;
 }
 .right{
   float: right !important;
+}
+.usersug{
+  height:50px;
+  background: white;
+  border: 1px #c5d0db solid;
+  border-bottom: 0;
+  color: #828282;
+  font-size: 1.3em;
+}
+.poisk{
+  height:43px;
+  background: #6387ac;
+}
+.over {
+  border: 2px dashed #000;
+}
+id{
+  display: none;
+}
+.ui_search.ui_search_new{
+  margin-right:0 !important;
+  margin-left:0 !important;
+}
+.headerp{
+  font-size: 16px;
+  padding: 0 0.75rem;
+}
+.headerp p {
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
+}
+.lefttur{
+  background: url(../img/epicenter.jpg);
+  background-size: cover;
+  background-blend-mode: darken;
+  background-repeat: no-repeat;
+  background-color: rgba(0,0,0,0.5);
+  display: inline-block;
+  height: 300px;
+  width: 500;
+  padding-right: 5px;
+}
+.centercol{
+
+  display: inline-block;
+  width: 200px;
+  height: 300px;
+}
+.centrpodcol{
+
+  width: 250px;
+  height: 145px;
+  margin-bottom: 5px;
+}
+.nameoftur-big{
+  font-size: 5em;
+  color: white;
+  font-weight: bold;
+  display: block;
+  position: relative;
+  width: 500px;
+  text-align: center;
+  margin: 0;
+  padding: 1.5em 0;
+}
+.nameoftur-little{
+  font-size: 2em;
+  color: white;
+  font-weight: bold;
+  display: block;
+  position: relative;
+  width: 250px;
+  text-align: center;
+  margin: 0;
+  padding: 2.2em 0;
 }

@@ -1,4 +1,13 @@
 
+.valign-wrapper {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .materialize-red {
   background-color: #e51c23 !important;
 }
