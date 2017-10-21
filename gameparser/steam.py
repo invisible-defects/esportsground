@@ -41,8 +41,6 @@ class Parser:
         link = link.format(key=self.key, appid=appid, sid=steamid)
         r = requests.get(link)
 
-        print(dict(r.json()))
-
         data = dict(r.json())["playerstats"]["stats"]
         data = {arr['name'] : arr['value'] for arr in data}
 
