@@ -1,4 +1,8 @@
-from webapp import db
+try:
+    from webapp import db
+except:
+    from webapp.webapp import db
+
 
 class User(db.Model):
     vkid = db.Column(db.String, primary_key=True)

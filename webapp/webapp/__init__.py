@@ -2,7 +2,7 @@ from flask import Flask, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 
 webapp = Flask(__name__, static_url_path='')
-webapp.config.from_object("config")
+webapp.config.from_pyfile("/home/deniska/Projects/esportsground/webapp/config.py")
 
 @webapp.route('/js/<path:path>')
 def send_js(path):
@@ -26,7 +26,11 @@ import os
 
 from flask_login import LoginManager
 from flask_openid import OpenID
-from config import basedir
+
+try:
+    from config import basedir
+except:
+    from webapp.config import basedir
 
 lm = LoginManager()
 lm.init_app(webapp)
