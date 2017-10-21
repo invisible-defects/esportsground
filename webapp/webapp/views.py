@@ -1,8 +1,8 @@
-from flask import render_template
-from webapp import webapp, db, lm, oid
-from flask.ext.login import login_user, logout_user, current_user, login_required
-from forms import LoginForm
-from models import User
+from flask import render_template, flash, redirect, session, url_for, request, g
+from webapp import webapp, db, oid
+from flask_login import login_user, logout_user, current_user, login_required
+from webapp.forms import LoginForm
+from webapp.models import User
 
 
 @webapp.route('/')
@@ -27,12 +27,10 @@ def csgo_team():
     <img src="https://i.pinimg.com/736x/00/8e/8f/008e8f7c946120650b7b254e2a72e7a4--caution-signs-construction-\
     signs.jpg" alt="Smiley face" height="500" width="500">"""
 
-    from flask import render_template, flash, redirect, session, url_for, request, g
 
 
 
-
-@app.route('/templates/register', methods = ['GET', 'POST'])
+@webapp.route('/templates/register', methods = ['GET', 'POST'])
 @oid.loginhandler
 def login():
   if g.user is not None and g.user.is_authenticated():
@@ -47,6 +45,7 @@ def login():
       providers = webapp.config['OPENID_PROVIDERS'])
 
 
+
 @oid.after_login
 def after_login(resp):
     if resp.steam_id is None or resp.steam_id == "":
@@ -54,7 +53,7 @@ def after_login(resp):
         return redirect(url_for('register'))
     user = User.query.filter_by(steamid = resp.steam_id).first()
     if user is None:
-        user = User.steamid=steam_id
+        user = User.steamid=resp.steam_id
         db.session.add(user)
         db.session.commit()
     remember_me = False
