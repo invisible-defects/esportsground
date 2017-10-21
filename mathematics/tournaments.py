@@ -35,3 +35,14 @@ class placeholderForOlympicSystem:
         self.name_table=make_corp(len(teams))
         for i in range(len(self.names)):
             self.name_table[0][i//2][i%2]=self.names[i]
+
+
+class placeholderForCirculSystem:
+    def __init__(self, teams):
+        table=[[None for j in range(len(teams)+1)] for i in range(len(teams)+1)]
+        for i in range(len(teams)+1):
+            table[i][0]=teams[i].name
+            for j in range(len(teams)+1):
+                if i==0: table[0][j]=teams[j].name
+                if i==j: table[i][j]="-"
+        self.table=table
