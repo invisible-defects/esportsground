@@ -1,8 +1,22 @@
 from flask import render_template, flash, redirect, session, url_for, request, g
-from webapp import webapp, db, oid
+try:
+    from webapp import webapp, db, oid
+except:
+    from webapp.webapp import webapp, db, oid
+
 from flask_login import login_user, logout_user, current_user, login_required
-from webapp.models import User
-from config import CONSTRUCTION
+
+try:
+    from webapp.models import User
+except:
+    from webapp.webapp.models import User
+
+try:
+    from config import CONSTRUCTION
+except:
+    from webapp.config import CONSTRUCTION
+
+
 from openid.extensions import pape
 
 
@@ -16,20 +30,13 @@ def profile():
 def menu():
     return render_template("register.html")
 
-@webapp.route('/csgo/stats')
-def csgo_stats():
-    return CONSTRUCTION
-
-@webapp.route('/csgo/team')
-def csgo_team():
-    return CONSTRUCTION
-
+@webapp.route('/games')
+def games():
+    return render_template("games.html")
 
 @webapp.before_request
 def before_request():
     g.user = None
-    #if 'openid' in session:
-     #   g.user = User.query.filter_by(openid=session['openid']).first()
 
 
 @webapp.route('/register_redirect', methods = ['GET', 'POST'])
@@ -58,4 +65,4 @@ def after_login(resp):
     db.session.add(user)
     db.session.commit()
 
-    return render_template("debugger.html", string="AAAA")
+    return redirect(url_for("/games"))

@@ -37,4 +37,7 @@ lm.init_app(webapp)
 lm.login_view = 'register'
 oid = OpenID(webapp, os.path.join(basedir, 'tmp'))
 
-from webapp import views, models
+try:
+    from webapp import views, models
+except:
+    from webapp.webapp import views, models

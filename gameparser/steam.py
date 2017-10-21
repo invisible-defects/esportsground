@@ -1,5 +1,8 @@
 import requests
-import gameparser.__config__ as conf
+try:
+    import gameparser.__config__ as conf
+except:
+    import __config__ as conf
 
 class Parser:
     def __init__(self, key):
@@ -38,6 +41,8 @@ class Parser:
         link = link.format(key=self.key, appid=appid, sid=steamid)
         r = requests.get(link)
 
+        print(dict(r.json()))
+
         data = dict(r.json())["playerstats"]["stats"]
         data = {arr['name'] : arr['value'] for arr in data}
 
@@ -66,5 +71,5 @@ class Parser:
 
 if __name__ == "__main__":
     p = Parser(conf.STEAMKEY)
-    print(p.getBans("76561197960435530"))
+    print(p.getUserStatsForGame("76561198353376393", conf.STEAMGAMES["csgo"]))
 

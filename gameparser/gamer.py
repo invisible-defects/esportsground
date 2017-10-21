@@ -1,12 +1,17 @@
 from gameparser.steam import Parser
-import gameparser.__config__ as conf
+try:
+    import gameparser.__config__ as conf
+except:
+    import __config__ as conf
+
+
 import mathematics.statistics
 
 parser = Parser(conf.STEAMKEY)
 
 
 class Gamer:
-    def __init__(self, vk_id, steam_id, game_names):
+    def __init__(self, steam_id, game_names):
         '''
         Give steam id as an argument and get players game statisctics
         :param vk_id: vk id
@@ -14,7 +19,6 @@ class Gamer:
         :param game_names: list of games (can find in __config__.py), example: ["csgo, "dota2"]
         '''
 
-        self.vk_id = vk_id
         self.steam_id = steam_id
         self.stats = list()
         for game in game_names:
@@ -40,13 +44,3 @@ class Gamer:
         R_friend: friends rating
         """
         return mathematics.statistics.E(self.R, R_friend)
-
-
-"""
-if __name__ == "__main__":
-    g = Gamer(123213, "76561198208367476", ["csgo"])
-    print(g.stats)
-    
-"""
-
-
