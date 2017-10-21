@@ -8,9 +8,9 @@ def profile():
     return render_template("index.html")
 
 @webapp.route('/register')
-@webapp.route('/Игры.html')
+@webapp.route('/register.html')
 def menu():
-    return render_template("Игры.html")
+    return render_template("register.html")
 
 @webapp.route('/games')
 @webapp.route('/games.html')

@@ -16,6 +16,10 @@ def send_css(path):
 def send_img(path):
     return send_from_directory('img', path)
 
+@webapp.route('/gameFiles/<path:path>')
+def send_game_file(path):
+    return send_from_directory('gameFiles', path)
+
 db = SQLAlchemy(webapp)
 
 from webapp import views, models
