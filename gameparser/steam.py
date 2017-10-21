@@ -47,6 +47,71 @@ class Parser:
 
         return data
 
+    def getUserMapsInCS(self, steamid):
+        """
+        Returns Statistics of rounds in maps in CS
+        :param steamid: str Steam account id
+        :return: dict map:rounds played
+        """
+
+        link = "http://api.steampowered.com/ISteamUserStats/" \
+               "GetUserStatsForGame/v0002/?appid={appid}&key={key}&steamid={sid}"
+        link = link.format(key=self.key, appid="730", sid=steamid)
+        r = requests.get(link)
+
+        data = dict(r.json())["playerstats"]["stats"]
+        data = {arr['name'] : arr['value'] for arr in data}
+
+        keys = ['total_wins_map_ar_baggage',
+ 'total_wins_map_ar_monastery',
+ 'total_wins_map_ar_shoots',
+ 'total_wins_map_cs_assault',
+ 'total_wins_map_cs_italy',
+ 'total_wins_map_cs_office',
+ 'total_wins_map_de_cbble',
+ 'total_wins_map_de_dust',
+ 'total_wins_map_de_dust2',
+ 'total_wins_map_de_inferno',
+ 'total_wins_map_de_lake',
+ 'total_wins_map_de_nuke',
+ 'total_wins_map_de_safehouse',
+ 'total_wins_map_de_stmarc',
+ 'total_wins_map_de_train']
+        [data.pop(k) for k in data.copy().keys() if k not in keys]
+
+        return data
+    
+    
+    def getUserBestMapsInCS(self, steamid):
+        
+        link = "http://api.steampowered.com/ISteamUserStats/" \
+               "GetUserStatsForGame/v0002/?appid={appid}&key={key}&steamid={sid}"
+        link = link.format(key=self.key, appid="730", sid=steamid)
+        r = requests.get(link)
+
+        data = dict(r.json())["playerstats"]["stats"]
+        data = {arr['name'] : arr['value'] for arr in data}
+
+        keys = ['total_wins_map_ar_baggage',
+ 'total_wins_map_ar_monastery',
+ 'total_wins_map_ar_shoots',
+ 'total_wins_map_cs_assault',
+ 'total_wins_map_cs_italy',
+ 'total_wins_map_cs_office',
+ 'total_wins_map_de_cbble',
+ 'total_wins_map_de_dust',
+ 'total_wins_map_de_dust2',
+ 'total_wins_map_de_inferno',
+ 'total_wins_map_de_lake',
+ 'total_wins_map_de_nuke',
+ 'total_wins_map_de_safehouse',
+ 'total_wins_map_de_stmarc',
+ 'total_wins_map_de_train']
+        [data.pop(k) for k in data.copy().keys() if k not in keys]
+        
+        data={v:k for k, v in data.items()}
+        return [(data[i], i) for i,j in zip(sorted(data, reverse=True), range(5))]
+    
     def isVACBanned(self, steamid):
         """
         Tells if players is VACBanned
