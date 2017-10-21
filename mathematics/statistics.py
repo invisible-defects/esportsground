@@ -39,15 +39,16 @@ def R_new(R, K, S, E):
 
 
 def set_R(*args):
-    (total_kills, total_deaths, total_time_played, total_wins, total_kills_headshot, total_shots_hit, total_shots_fired, total_mvps, total_matches_played)=args
-    total_time_played/=3600.0
-    R=total_kills*log(total_time_played)*total_wins*total_matches_played*total_kills_headshot*total_mvps*total_shots_hit/(total_deaths*(total_deaths+total_kills)*total_shots_fired*total_shots_fired)
-    T=int(R*25/3/10)
+    args[2]=log10(args[2])*args[2]/3600
+    R=list(map(lambda a: a**2, args))
+    #R=total_kills*log(total_time_played)*total_wins*total_matches_played*total_kills_headshot*total_mvps*total_shots_hit/(total_deaths*(total_deaths+total_kills)*total_shots_fired*total_shots_fired)
+    T=R*250/3
     return T if T<=2500 else 2500
 
 
 def set_R(total_kills, total_deaths, total_time_played, total_wins, total_kills_headshot, total_shots_hit, total_shots_fired, total_mvps, total_matches_played):
     total_time_played/=3600.0
-    R=total_kills*log(total_time_played)*total_wins*total_matches_played*total_kills_headshot*total_mvps*total_shots_hit/(total_deaths*(total_deaths+total_kills)*total_shots_fired*total_shots_fired)
-    T=int(R*25/3/10)
+    params=[total_kills, total_deaths, total_time_played, total_wins, total_kills_headshot, total_shots_hit, total_shots_fired, total_mvps, total_matches_played]
+    R=list(map(lambda a: a**2, params))
+    T=R*250/3
     return T if T<=2500 else 2500
