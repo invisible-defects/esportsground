@@ -23,3 +23,14 @@ def send_game_file(path):
 db = SQLAlchemy(webapp)
 
 from webapp import views, models
+
+#log in
+import os
+from flask.ext.login import LoginManager
+from flask.ext.openid import OpenID
+from config import basedir
+
+lm = LoginManager()
+lm.init_app(webapp)
+lm.login_view = 'register'
+oid = OpenID(webapp, os.path.join(basedir, 'tmp'))
