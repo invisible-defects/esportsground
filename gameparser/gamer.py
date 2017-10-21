@@ -29,6 +29,7 @@ class Gamer:
         """total_kills, total_deaths, total_time_played, total_wins, total_kills_headshot, total_shots_hit, total_shots_fired, total_mvps, total_matches_played"""
         self.csgo_stats=[self.stats[0]['csgo'][i] for i in self.stats[0]['csgo']]
         self.R=mathematics.statistics.set_R(*self.csgo_stats)
+        self.bestMaps=parser.getUserBestMapsInCS(steam_id)
         
     def refresh_R(self, S, E):
         """
