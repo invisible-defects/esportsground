@@ -83,7 +83,10 @@ class Parser:
     
     
     def getUserBestMapsInCS(self, steamid):
-        
+        """
+        :param steamid: str Steam account id
+        :return: dict map:rounds played. len(dict)=5
+        """
         link = "http://api.steampowered.com/ISteamUserStats/" \
                "GetUserStatsForGame/v0002/?appid={appid}&key={key}&steamid={sid}"
         link = link.format(key=self.key, appid="730", sid=steamid)
