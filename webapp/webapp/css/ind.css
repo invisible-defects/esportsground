@@ -63,9 +63,6 @@
   font-size: 16px;
   margin: 0.5em 0 !important;
 }
-.apps_recent_block{
-  height: auto !important;
-}
 .cell{
   display: table-cell;
 }
@@ -162,9 +159,30 @@
   text-transform: uppercase;
   color: #333;
 }
-.apps_recent_notifications_wrap{
+/*.apps_recent_notifications_wrap, .apps_notifications_wrap .apps_notifications_wrap_inner, .ui_scroll_blocker, .ui_scroll_outer, .ui_scroll_overflow, .apps_notifications_wrap{
   height: auto !important;
-}
+  max-height: 100%;
+  overflow:unset;
+}*/
 .rating-pic{
   height:100px;
+}
+/*.apps_recent_block{
+  min-height: -webkit-fill-available;
+}*/
+.page_block_h2 {
+  height:auto;
+}
+/*.ui_scroll_overflow{
+    overflow: unset;
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height:  -webkit-fill-available;
+    max-height: none;
+}*/
+/*min-heiEght: -webkit-fill-available;*/
+
+.apps_recent_block{
+  min-height: -webkit-fill-available;
 }
