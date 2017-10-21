@@ -1,8 +1,20 @@
-from flask import Flask
+from flask import Flask, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 
-webapp = Flask(__name__)
+webapp = Flask(__name__, static_url_path='')
 webapp.config.from_object("config")
+
+@webapp.route('/js/<path:path>')
+def send_js(path):
+    return send_from_directory('js', path)
+
+@webapp.route('/css/<path:path>')
+def send_css(path):
+    return send_from_directory('css', path)
+
+@webapp.route('/img/<path:path>')
+def send_img(path):
+    return send_from_directory('img', path)
 
 db = SQLAlchemy(webapp)
 

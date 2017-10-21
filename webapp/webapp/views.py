@@ -8,8 +8,14 @@ def profile():
     return render_template("index.html")
 
 @webapp.route('/register')
+@webapp.route('/Игры.html')
 def menu():
-    return render_template("register.html")
+    return render_template("Игры.html")
+
+@webapp.route('/games')
+@webapp.route('/games.html')
+def games():
+    return render_template("games.html")
 
 @webapp.route('/csgo/stats')
 def csgo_stats():
