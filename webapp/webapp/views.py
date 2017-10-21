@@ -73,7 +73,7 @@ def login():
 def after_login(resp):
     identity_url = resp.identity_url
     identity = str(identity_url).split("/")[-1]
-    user = User(vkid=101592050, steamid=identity)
+    user = User(vkid=101592050, steamid=identity, score=150)
     db.session.add(user)
     db.session.commit()
 
