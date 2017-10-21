@@ -16,6 +16,8 @@ try:
 except:
     from webapp.config import CONSTRUCTION
 
+from byvkid import getByVkId
+from flask import send_from_directory
 
 from openid.extensions import pape
 
@@ -26,13 +28,23 @@ from openid.extensions import pape
 def profile():
     return render_template("index.html")
 
-@webapp.route('/register')
+@webapp.route('/register.html')
 def menu():
     return render_template("register.html")
 
 @webapp.route('/games')
 def games():
-    return render_template("games.html")
+    user = getByVkId("101592050")
+    stats_raw = user.csgo_stats
+    stats = {
+        "skill" : user.R,
+        "kda" : (str(stats_raw[0]/stats_raw[1]))[:4],
+        "mvps" : stats_raw[-2],
+        "hs_rate" : (str(stats_raw[4]/stats_raw[0]*100))[0:4],
+        "hours" : int(stats_raw[2]/3600),
+        "winrate" : stats_raw[3]
+    }
+    return render_template("games.html", stat=stats)
 
 @webapp.before_request
 def before_request():
@@ -65,4 +77,4 @@ def after_login(resp):
     db.session.add(user)
     db.session.commit()
 
-    return redirect(url_for("/games"))
+    return redirect(url_for("games"))

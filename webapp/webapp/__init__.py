@@ -2,7 +2,7 @@ from flask import Flask, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 
 webapp = Flask(__name__, static_url_path='')
-webapp.config.from_pyfile("/home/deniska/Projects/esportsground/webapp/config.py")
+webapp.config.from_pyfile("../config.py")
 
 @webapp.route('/js/<path:path>')
 def send_js(path):
@@ -17,7 +17,7 @@ def send_img(path):
     return send_from_directory('img', path)
 
 @webapp.route('/gameFiles/<path:path>')
-def send_game_file(path):
+def send_gameFiles(path):
     return send_from_directory('gameFiles', path)
 
 db = SQLAlchemy(webapp)

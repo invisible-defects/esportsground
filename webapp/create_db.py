@@ -1,8 +1,8 @@
 #!/bin/python
 from migrate.versioning import api
-from webapp.config import SQLALCHEMY_DATABASE_URI
-from webapp.config import SQLALCHEMY_MIGRATE_REPO
-from webapp.webapp import db
+from config import SQLALCHEMY_DATABASE_URI
+from config import SQLALCHEMY_MIGRATE_REPO
+from webapp import db
 import os.path
 
 db.create_all()
