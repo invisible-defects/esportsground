@@ -42,7 +42,7 @@ class Parser:
         data = {arr['name'] : arr['value'] for arr in data}
 
         keys = ["total_kills", "total_deaths", "total_time_played", "total_wins",
-                "total_kills_headshot", "total_shots_fired", "total_shots_hit"]
+                "total_kills_headshot", "total_shots_fired", "total_shots_hit", 'total_mvps', 'total_matches_played']
         [data.pop(k) for k in data.copy().keys() if k not in keys]
 
         return data
