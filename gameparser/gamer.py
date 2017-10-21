@@ -46,6 +46,7 @@ class Gamer:
 if __name__ == "__main__":
     g = Gamer(123213, "76561198208367476", ["csgo"])
     print(g.stats)
+    
 """
 
 
