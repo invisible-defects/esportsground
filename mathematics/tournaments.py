@@ -1,5 +1,5 @@
 class Team:
-    def __init__(name, members):
+    def __init__(self, name, members):
         self.name = name
         self.members = members
         self.R=sum(i.R for i in members)/len(members)
@@ -28,7 +28,7 @@ def make_corp(inp, tab=[]):
 
 
 class placeholderForOlympicSystem:
-    def __init__(teams):
+    def __init__(self, teams):
         self.teams=teams
         self.table=make_corp(len(teams))
         self.names=[i.name for i in teams]
