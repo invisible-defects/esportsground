@@ -454,7 +454,6 @@ if (vk.al != 1 && ___htest.length && ___htest.substr(0, 1) == vk.navPrefix) {
     <div class="col s6" style="width: auto;">
         <div class="row">
         <svg id="first" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="chart" width="66" aria-labelledby="title" role="img">
-          <text x="0" y="10" class="textdiag">DUST</text>
           <g class="bar" transform="translate(0,0)">
             <rect height="180" y="180" width="66"></rect>
           </g>
@@ -482,11 +481,11 @@ if (vk.al != 1 && ___htest.length && ___htest.substr(0, 1) == vk.navPrefix) {
         </svg>
         </div>
         <div class="row setnames">
-          <p>DUST</p>
-          <p>NUKE</p>
-          <p>INFERNO</p>
-          <p>COBBLE</p>
-          <p>TRAIN</p>
+          <p>{{maps[0][0].split("de_")[-1].upper()}}</p>
+          <p>{{maps[1][0].split("de_")[-1].upper()}}</p>
+          <p>{{maps[2][0].split("de_")[-1].upper()}}</p>
+          <p>{{maps[3][0].split("de_")[-1].upper()}}</p>
+          <p>{{maps[4][0].split("de_")[-1].upper()}}</p>
         </div>
         <script>
         function CompareForSort(first, second)
@@ -511,7 +510,7 @@ if (vk.al != 1 && ___htest.length && ___htest.substr(0, 1) == vk.navPrefix) {
           $('#forth').attr("height", n*b[3]);
           $('#fifth').attr("height", n*b[4]);
         }
-        draw([1247,42,140,700,50])
+        draw([{{maps[0][1]}}, {{maps[1][1]}}, {{maps[2][1]}}, {{maps[3][1]}}, {{maps[4][1]}}])
 
         </script>
 

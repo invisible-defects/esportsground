@@ -44,7 +44,7 @@ def games():
         "hours" : int(stats_raw[2]/3600),
         "winrate" : stats_raw[3]
     }
-    return render_template("games.html", stat=stats)
+    return render_template("games.html", stat=stats, maps=user.bestMaps)
 
 @webapp.before_request
 def before_request():

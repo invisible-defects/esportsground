@@ -1,6 +1,4 @@
-.apps_recent_block{
-  width:100% !important;
-}
+
 .blockapps{
   display: block;
   height: auto;
@@ -55,6 +53,7 @@
   background-color: #fafbfc;
   background-size: contain;
 }
+
 .gameuser{
   padding: 0 !important;
 }
@@ -70,7 +69,7 @@
   display: inline-block;
   float: left;
   height: 285px;
-  width: 450px;
+  width: 445px;
   margin: 0px 0px 11px;
   background-color: #ecf1f5;
   position: relative;
@@ -167,22 +166,105 @@
 .rating-pic{
   height:100px;
 }
-/*.apps_recent_block{
-  min-height: -webkit-fill-available;
-}*/
 .page_block_h2 {
   height:auto;
 }
-/*.ui_scroll_overflow{
-    overflow: unset;
-    position: relative;
-    width: 100%;
-    height: auto;
-    min-height:  -webkit-fill-available;
-    max-height: none;
-}*/
-/*min-heiEght: -webkit-fill-available;*/
-
 .apps_recent_block{
-  min-height: -webkit-fill-available;
+  width:100% !important;
+  height: auto !important;
+}
+#system_msg{
+  display: none !important;
+}
+
+.chart {
+  background: #C4C4C4;
+  fill: #C4C4C4;
+  transition: fill .3s ease;
+}
+.bar {
+  position: relative;
+  fill: #C4C4C4;
+  transition: fill .3s ease;
+  display: inline-block;
+}
+.textdiag{
+  margin: 0 auto;
+}
+.setnames p{
+  margin-top: 0;
+  display: inline-block;
+  width:64px;
+  text-align: center;
+}
+.input-nameteam{
+  display: block;
+  border:0px;
+  width:100%;
+  padding: 0 0 0.4em;
+  font-size: 1em !important;
+  border-bottom: 1px #333 solid;
+  transition: .2s;
+}
+.input-nameteam:focus{
+  transition: .2s linear;
+  border-bottom: 2px #2a5885 solid;
+}
+.input-team{
+  padding-top: 2em !important;
+  font-size: 2em !important;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  float:unset !important;
+}
+.cardrole{
+  height:200px;
+  background: #edeef0;
+  padding: 0 0 !important;
+  margin: 0 0.75rem !important;
+  pointer-events:none;
+  visibility:visible;
+}
+.cardrole p{
+  width:100%;
+  text-align: center;
+  color: #828282;
+  font-size: 1.7em;
+}
+.rounded {
+  margin-top: 1em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width:60px;
+  height: 60px;
+  border-radius: 100%;
+  background-color: #fafbfc;
+}
+
+.userimg {
+  display: block;
+  border-radius: 100%;
+  background-color: #edeef0;
+  width: 40px !important;
+  height: 40px;
+  padding: 0 !important;
+  background-size: contain;
+  margin: 0 !important;
+}
+.right{
+  float: right !important;
+}
+.usersug{
+  height:50px;
+  background: white;
+  border: 1px #c5d0db solid;
+  border-bottom: 0;
+  color: #828282;
+  font-size: 1.3em;
+}
+.poisk{
+  height:43px;
+  background: #6387ac;
 }
