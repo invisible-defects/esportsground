@@ -1,5 +1,6 @@
 from flask import render_template
 from webapp import webapp
+from config import VK_ID
 
 @webapp.route('/')
 @webapp.route('/index')
@@ -15,4 +16,13 @@ def menu():
 @webapp.route('/games')
 @webapp.route('/games.html')
 def games():
-    return render_template("games.html")
+    user = getUser(VK_ID)
+    stats = user.csgo_stats
+
+    stat_params = {
+        "skill" : user.R,
+        "time_played" : stats[-2],
+        "hs_rate" : (str(stats[2]/stats[1]))[0:3],
+        "kda" : (str(stats[1]/stats[0]))[0:3]
+    }
+    return render_template("games.html", stat=stat_params)
