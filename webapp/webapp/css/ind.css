@@ -149,7 +149,7 @@
 }
 .rating-h1 h1 strong{
   font-size: 2.2em;
-  line-height: 1em;
+  line-height: 1.5em;
   text-transform: uppercase;
   color: #333;
 }
@@ -338,4 +338,13 @@ id{
   text-align: center;
   margin: 0;
   padding: 2.2em 0;
+}
+.raspisanie{
+  text-align: center;
+  height: 40px;
+  margin-top: -1px;
+  border: 1px #c5d0db solid;
+  border-left: 0;
+  border-right: 0;
+  padding: 0 !important;
 }
